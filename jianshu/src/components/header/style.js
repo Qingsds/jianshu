@@ -93,6 +93,38 @@ export const MenuSearch = styled.input.attrs({ placeholder: "搜索" })`
     font-size: 10px;
   }
 `;
+export const SearchInfoWrapper = styled.div`
+  position: absolute;
+  top: 56px;
+  left:23px;
+  width: 240px;
+  background: #fff;
+  box-shadow:0 0 8px rgb(0,0,0,.2);
+`;
+export const SearchInfoTitle = styled.div`
+  margin:15px 13px;
+  font-size:8px;
+  color:#787878;
+`;
+export const SearchInfoSwitch = styled.a`
+  float:right;
+`;
+export const SearchInfoList = styled.div`
+  margin:15px 0;
+  margin-left:20px;
+`;
+export const SearchInfoItem = styled.a`
+font-size:6px;
+color:#777;
+display:inline-block;
+margin-bottom:10px;
+margin-right:15px;
+border:1px solid;
+border-radius:3px;
+padding:2px; 
+
+
+`;
 export const RightMenu = styled.div`
   width: 210px;
   height: 56px;
