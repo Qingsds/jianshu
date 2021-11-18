@@ -12,16 +12,20 @@ import {
 import React from "react";
 import { CSSTransition } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
+import { actionCreators } from "./store";
 
 export default function Header() {
-  const store = useSelector((state) => Object.assign({}, state));
-  const { focus } = store;
+  const focus = useSelector((state) => state.get("header").get("focus"));
   const dispatch = useDispatch();
   //获取焦点和失去焦点特效
   function focusHandler(e) {
-    dispatch({ type: focus ? "search_blur" : "search_focus" });
+    dispatch(
+      focus === false
+        ? actionCreators.SearchFocus()
+        : actionCreators.SearchBlur()
+    );
   }
-  
+
   return (
     <div>
       <HeaderWrapper>
