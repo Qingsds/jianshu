@@ -15,7 +15,10 @@ export default (pre = initialValue, action) => {
     case constants.SEARCH_BLUR:
       return pre.set("focus", false);
     case constants.LIST_SUCCESS:
-      return pre.set("list", action.data).set("totalPages", action.totalPages);
+      return pre.merge({
+        list: action.data,
+        totalPages: action.totalPages,
+      });
     case constants.CHANGE_PAGE:
       return pre.set("currentPage", action.page);
     case constants.MOUSE_ENTER:

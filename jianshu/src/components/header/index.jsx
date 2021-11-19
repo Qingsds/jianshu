@@ -14,7 +14,7 @@ import {
   SearchInfoList,
   SearchInfoItem,
 } from "./style";
-import React from "react";
+import React, { createRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators } from "./store";
@@ -32,6 +32,8 @@ export default function Header() {
   const mouseIn = useSelector((state) => state.getIn(["header", "mouseIn"]));
   // console.log(currentPage, totalPages);
   const dispatch = useDispatch();
+  const spinIcon = createRef();
+
   //获取焦点和失去焦点特效
   function focusHandler(e) {
     dispatch(actionCreators.SearchFocus());
@@ -52,15 +54,22 @@ export default function Header() {
   function showList() {
     const jsList = data.toJS();
     const showList = [];
-    for (let i = (currentPage - 1) * 7; i < currentPage * 7; i++) {
-      showList.push(
-        <SearchInfoItem key={nanoid()}>{jsList[i]}</SearchInfoItem>
-      );
+    if (jsList.length) {
+      for (let i = (currentPage - 1) * 7; i < currentPage * 7; i++) {
+        showList.push(
+          <SearchInfoItem key={nanoid()}>{jsList[i]}</SearchInfoItem>
+        );
+      }
+      return showList;
     }
-    return showList;
   }
   //点击换页
   function changePage() {
+ 
+    let originAngle = spinIcon.current.style.transform.replace(/[^0-9]/gi, "");
+    if (!originAngle) originAngle = 0;
+    console.log(originAngle,spinIcon.current.style);
+    spinIcon.current.style.transform = `rotate(${originAngle * 1 + 360}deg)`;
     dispatch(
       actionCreators.ChangePage(currentPage >= totalPages ? 1 : currentPage + 1)
     );
@@ -75,7 +84,12 @@ export default function Header() {
         >
           <SearchInfoTitle>
             热门搜索
-            <SearchInfoSwitch onClick={changePage}>换一批</SearchInfoSwitch>
+            <SearchInfoSwitch onClick={changePage}>
+              <i className="iconfont spin" ref={spinIcon}>
+                &#xe73a;
+              </i>
+              换一批
+            </SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>{showList()}</SearchInfoList>
         </SearchInfoWrapper>
@@ -106,7 +120,7 @@ export default function Header() {
                   onBlur={blurHandler}
                 ></MenuSearch>
               </CSSTransition>
-              <i className="iconfont">&#xe6cf;</i>
+              <i className="iconfont zoom">&#xe6cf;</i>
               {getListArea()}
             </SearchWrapper>
           </Menu>
