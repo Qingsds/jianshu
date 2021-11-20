@@ -195,8 +195,7 @@ export const WriterItem = styled.div`
   .name{
     display:block;
     float:left;
-    margin-left:10px;
-    margin-right:10px;
+    margin:1px 10px;
     box-sizing:border-box;
     padding-top:7px;
     cursor:pointer;
@@ -212,8 +211,19 @@ export const WriterItem = styled.div`
   p{
     font-size:12px;
     color:rgb(150,150,150);
+    width:140px;
   }
 `;
 export const FindMore = styled.div`
+  box-sizing:border-box;
+  background:rgb(247, 247, 247);
+  text-align:center;
+  padding:7px;
+  margin-left:9px;
+  border-radius:4px;
+  border:solid .8px rgb(220, 220, 220);
+  cursor:pointer;
+  font-size:12px;
+  line-height:12px;
 
 `;

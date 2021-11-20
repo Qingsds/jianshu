@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RecommendWrapper, QRCodeWrapper, HiddenCode } from "../style";
 import { useSelector, useDispatch } from "react-redux";
-import { mouseIn, mouseOut } from "../store/actionCreator";
+import { mouseIn, mouseOut, getBannerPic } from "../store/actionCreator";
+import { nanoid } from "nanoid";
 
 export default function Recommend() {
   const moueState = useSelector((state) => state.getIn(["home", "mouseIn"]));
+  const list = useSelector((state) =>
+    state.getIn(["home", "bannerPic"])
+  );
+  const bannerPicList = list.toJS();
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getBannerPic());
+  }, []);
 
   function mouseEnterHandler() {
     dispatch(mouseIn());
@@ -30,26 +38,11 @@ export default function Recommend() {
   return (
     <RecommendWrapper>
       <div>
-        <img
-          className="banner-img"
-          src="http://r2uoh2y9h.hn-bkt.clouddn.com/banner-s-daily-e6f6601abc495573ad37f2532468186f.png"
-          alt=""
-        />
-        <img
-          className="banner-img"
-          src="http://r2uoh2y9h.hn-bkt.clouddn.com/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png"
-          alt=""
-        />
-        <img
-          className="banner-img"
-          src="http://r2uoh2y9h.hn-bkt.clouddn.com/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png"
-          alt=""
-        />
-        <img
-          className="banner-img"
-          src="http://r2uoh2y9h.hn-bkt.clouddn.com/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png"
-          alt=""
-        />
+        {bannerPicList.map((item) => {
+          return (
+            <img key={nanoid()} className="banner-img" src={item.src} alt="" />
+          );
+        })}
       </div>
       <QRCodeWrapper>
         <img

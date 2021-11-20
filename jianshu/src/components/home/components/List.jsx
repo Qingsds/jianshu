@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
-import React from "react";
-import {useSelector} from 'react-redux';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getArticleList } from "../store/actionCreator";
 
 import {
   ListWrapper,
@@ -10,20 +11,22 @@ import {
   NoteFoot,
 } from "../style";
 
-
 export default function List() {
-  const articleList = useSelector(state => state.getIn(['home','articleList']));
+  const articleList = useSelector((state) =>
+    state.getIn(["home", "articleList"])
+  );
+  const dispatch = useDispatch();
   const showList = articleList.toJS();
+  useEffect(() => {
+    dispatch(getArticleList());
+  }, []);
   return (
     <ListWrapper>
-      {
-        showList.map(item => {
-          return (
-            <NoteWrapper key={nanoid()}>
+      {showList.map((item) => {
+        return (
+          <NoteWrapper key={nanoid()}>
             <NoteTitle>{item.title}</NoteTitle>
-            <NoteBody>
-              {item.desc}
-            </NoteBody>
+            <NoteBody>{item.desc}</NoteBody>
             <NoteFoot>
               <span className="footIcon">
                 <i className="iconfont">&#xe79f;</i>
@@ -38,9 +41,8 @@ export default function List() {
               </span>
             </NoteFoot>
           </NoteWrapper>
-          )
-        })
-      }
+        );
+      })}
     </ListWrapper>
   );
 }

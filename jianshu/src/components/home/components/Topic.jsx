@@ -10,7 +10,6 @@ export default function Topic() {
   return (
     <TopicWrapper>
       {list.map((item) => {
-          console.log(item.title);
         return (
           <TopicItem key={nanoid()}>
             <img className="topic-pic" src={item.imgUrl} alt="abc" />
