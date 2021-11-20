@@ -37,7 +37,7 @@ export default function Header() {
   //获取焦点和失去焦点特效
   function focusHandler(e) {
     dispatch(actionCreators.SearchFocus());
-    if (data.size === 0) dispatch(actionCreators.getHeaderList());
+    data.size === 0 && dispatch(actionCreators.getHeaderList());
   }
   function blurHandler() {
     dispatch(actionCreators.SearchBlur());
@@ -65,10 +65,8 @@ export default function Header() {
   }
   //点击换页
   function changePage() {
- 
     let originAngle = spinIcon.current.style.transform.replace(/[^0-9]/gi, "");
     if (!originAngle) originAngle = 0;
-    console.log(originAngle,spinIcon.current.style);
     spinIcon.current.style.transform = `rotate(${originAngle * 1 + 360}deg)`;
     dispatch(
       actionCreators.ChangePage(currentPage >= totalPages ? 1 : currentPage + 1)
@@ -76,12 +74,13 @@ export default function Header() {
   }
   // focus触发下拉信息
   function getListArea() {
-    if (mouseIn || focus) {
+    if (focus || mouseIn) {
       return (
         <SearchInfoWrapper
           onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
         >
+          
           <SearchInfoTitle>
             热门搜索
             <SearchInfoSwitch onClick={changePage}>

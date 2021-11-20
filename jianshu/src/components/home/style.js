@@ -1,0 +1,219 @@
+import styled from "styled-components";
+// home
+export const HomeWrapper = styled.div`
+  overflow: hidden;
+  width: 960px;
+  margin: 0 auto;
+`;
+export const HomeLeftWrapper = styled.div`
+  box-sizing: border-box;
+  width: 640px;
+  float: left;
+  padding-top: 30px;
+  .img-div {
+    width: 640px;
+    height: 270px;
+    margin-bottom: 10px;
+  }
+`;
+export const HomeRightWrapper = styled.div`
+  box-sizing: border-box;
+  width: 280px;
+  padding-top: 30px;
+  margin-left: 40px;
+  float: right;
+`;
+
+// topic
+export const TopicWrapper = styled.div`
+  overflow: hidden;
+  padding: 10px 0 10px 0;
+  margin-right: -18px;
+  .icon-span {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    font-size: 10px;
+    .iconfont {
+      position: absolute;
+      display: inline-block;
+      height: 34px;
+      line-height: 34px;
+    }
+  }
+`;
+export const TopicItem = styled.div`
+  cursor: pointer;
+  height: 32px;
+  line-height: 32px;
+  font-size: 12px;
+  float: left;
+  background: #f7f7f7;
+  color: #000;
+  padding-right: 5px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  margin-right: 18px;
+  margin-bottom: 10px;
+  .topic-pic {
+    display: block;
+    float: left;
+    height: 32px;
+  }
+`;
+
+// list
+export const ListWrapper = styled.div`
+  box-sizing: border-box;
+`;
+export const NoteWrapper = styled.div`
+  width: 640px;
+  border-bottom: 0.8px solid rgb(240, 240, 240);
+  padding: 10px 2px;
+  margin-bottom: 10px;
+`;
+export const NoteTitle = styled.a`
+  display: block;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer;
+  font-weight: 700px;
+  color: rgb(47, 47, 47);
+  text-decoration: none;
+  &.inWord {
+    text-decoration: underline rgb(47, 47, 47) auto solid;
+  }
+`;
+export const NoteBody = styled.div`
+  color: rgb(153, 153, 153);
+  font-size: 13px;
+  line-height: 24px;
+  margin-bottom: 8px;
+`;
+export const NoteFoot = styled.div`
+  color: rgb(51, 51, 51);
+  font-size: 12px;
+  line-height: 20px;
+  .footIcon {
+    margin-right: 8px;
+  }
+  .iconfont {
+    font-size: 10px;
+  }
+`;
+
+// RecommendWrapper
+export const RecommendWrapper = styled.div`
+  margin-top: -2px;
+  padding-bottom: 5px;
+  .banner-img {
+    display: block;
+    cursor: pointer;
+    width: 280px;
+    margin-bottom: 4px;
+  }
+  .
+`;
+export const QRCodeWrapper = styled.div`
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  width: 280px;
+  background: rgb(255, 255, 255);
+  border: 0.8px solid rgb(240, 240, 240);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 10px 22px;
+  font-size: 17px;
+  .QRCode-mini {
+    display: inline-block;
+    width: 60px;
+  }
+  .info {
+    float: right;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 24px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .qr-description {
+    font-size: 13px;
+  }
+`;
+export const HiddenCode = styled.div`
+  position: absolute;
+  padding: 8px;
+  background: #fff;
+  bottom: 87px;
+  left: 50px;
+  border: 0.8px solid rgb(240, 240, 240);
+  border-radius: 7px;
+  .QRCode-big {
+    width: 160px;
+    height: 160px;
+  }
+`;
+
+//writer
+export const WriterWrapper = styled.div``;
+export const WriterTitle = styled.div`
+  margin: 15px 13px;
+  font-size: 8px;
+  color: #787878;
+`;
+export const TitleSwitch = styled.span`
+  cursor: pointer;
+  float: right;
+  .spin {
+    display: inline-block;
+    margin-right: 3px;
+    color: #777;
+    background: #fff;
+    font-size: 8px;
+    transition: all 0.5s ease-in;
+    transform-origin: center center;
+  }
+`;
+export const WriterList = styled.div`
+  text-align:left;
+  font-size:13px;
+`;
+export const WriterItem = styled.div`
+  overflow:hidden;
+  margin-left:10px;
+  margin-bottom:13px;
+  .avatar{
+    width:48px;
+    border-radius:50%;
+    float:left;
+
+  }
+  .name{
+    display:block;
+    float:left;
+    margin-left:10px;
+    margin-right:10px;
+    box-sizing:border-box;
+    padding-top:7px;
+    cursor:pointer;
+  }
+  .follow{
+    float:right;
+    color:#79d26b;
+    font-size:13px;
+    cursor:pointer;
+    box-sizing:border-box;
+    padding-right:3px;
+  }
+  p{
+    font-size:12px;
+    color:rgb(150,150,150);
+  }
+`;
+export const FindMore = styled.div`
+
+`;

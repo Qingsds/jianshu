@@ -6,6 +6,90 @@
   "description": "这是简书iconfont仓库",
   "glyphs": [
     {
+      "icon_id": "11487977",
+      "name": "arrow-right",
+      "font_class": "arrow-right",
+      "unicode": "e743",
+      "unicode_decimal": 59203
+    },
+    {
+      "icon_id": "11488090",
+      "name": "operation",
+      "font_class": "operation",
+      "unicode": "e75b",
+      "unicode_decimal": 59227
+    },
+    {
+      "icon_id": "11488115",
+      "name": "Right arrow",
+      "font_class": "Rightarrow",
+      "unicode": "e761",
+      "unicode_decimal": 59233
+    },
+    {
+      "icon_id": "11488262",
+      "name": "good-fill",
+      "font_class": "good-fill",
+      "unicode": "e780",
+      "unicode_decimal": 59264
+    },
+    {
+      "icon_id": "11488266",
+      "name": "hot-fill",
+      "font_class": "hot-fill",
+      "unicode": "e781",
+      "unicode_decimal": 59265
+    },
+    {
+      "icon_id": "11488305",
+      "name": "product",
+      "font_class": "product",
+      "unicode": "e788",
+      "unicode_decimal": 59272
+    },
+    {
+      "icon_id": "11494511",
+      "name": "collection",
+      "font_class": "collection",
+      "unicode": "e79d",
+      "unicode_decimal": 59293
+    },
+    {
+      "icon_id": "11494512",
+      "name": "consumption-fill",
+      "font_class": "consumption-fill",
+      "unicode": "e79e",
+      "unicode_decimal": 59294
+    },
+    {
+      "icon_id": "11494514",
+      "name": "brand",
+      "font_class": "brand",
+      "unicode": "e79f",
+      "unicode_decimal": 59295
+    },
+    {
+      "icon_id": "11494522",
+      "name": "consumption",
+      "font_class": "consumption",
+      "unicode": "e7a0",
+      "unicode_decimal": 59296
+    },
+    {
+      "icon_id": "11674252",
+      "name": "comments-fill",
+      "font_class": "comments-fill",
+      "unicode": "e7a9",
+      "unicode_decimal": 59305
+    },
+    {
+      "icon_id": "12011695",
+      "name": "favorites",
+      "font_class": "favorites",
+      "unicode": "e7b3",
+      "unicode_decimal": 59315
+    },
+    {
       "icon_id": "7685282",
       "name": "spinner",
       "font_class": "spinner",
