@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getArticleList } from "../store/actionCreator";
+import { getArticleList, getMoreArticleList } from "../store/actionCreator";
 
 import {
   ListWrapper,
@@ -9,24 +9,38 @@ import {
   NoteTitle,
   NoteBody,
   NoteFoot,
+  LoadMore,
 } from "../style";
 
 export default function List() {
   const articleList = useSelector((state) =>
     state.getIn(["home", "articleList"])
   );
+  const articlePage = useSelector((state) =>
+    state.getIn(["home", "articlePage"])
+  );
   const dispatch = useDispatch();
   const showList = articleList.toJS();
   useEffect(() => {
     dispatch(getArticleList());
   }, []);
+
+  function showMore() {
+    console.log(1);
+    dispatch(getMoreArticleList(articlePage + 1));
+  }
   return (
     <ListWrapper>
       {showList.map((item) => {
         return (
-          <NoteWrapper key={nanoid()}>
+          
+          <NoteWrapper key={nanoid()} >
+              <img
+              className={item.src ? "right-pic" : ""}
+              src={item.src || ""}
+            ></img>
             <NoteTitle>{item.title}</NoteTitle>
-            <NoteBody>{item.desc}</NoteBody>
+            <NoteBody className={item.src ? "img-in" : ""}>{item.desc}</NoteBody>
             <NoteFoot>
               <span className="footIcon">
                 <i className="iconfont">&#xe79f;</i>
@@ -43,6 +57,7 @@ export default function List() {
           </NoteWrapper>
         );
       })}
+      <LoadMore onClick={showMore}>阅读更多</LoadMore>
     </ListWrapper>
   );
 }

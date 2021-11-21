@@ -1,4 +1,4 @@
-import React, { createRef, useEffect } from "react";
+import React, { createRef, useEffect, } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getWriterList, changePage } from "../store/actionCreator";
 import { nanoid } from "nanoid";
@@ -25,20 +25,24 @@ export default function Writer() {
   const totalPages = useSelector((state) =>
     state.getIn(["home", "totalPages"])
   );
-  const writers = list.size ? list.toJS():[];
+  const writers = list.size ? list.toJS() : [];
+
+
   function showList() {
     let showList = [];
-    for (let i = (currentPage - 1) * 5; i < currentPage * 5; i++) {
-      showList.push(
-        <WriterItem key={nanoid()}>
-          <img className="avatar" src={writers[i].src} alt="" />
-          <a className="name">{writers[i].name}</a>
-          <a className="follow name">+&nbsp;关注</a>
-          <p className="name p">
-            写了{writers[i].words}字 · {writers[i].likes}喜欢
-          </p>
-        </WriterItem>
-      );
+    if (writers.length !== 0 ) {
+      for (let i = (currentPage - 1) * 5; i < currentPage * 5; i++) {
+        showList.push(
+          <WriterItem key={nanoid()}>
+            <img className="avatar" src={writers[i].src} alt="" />
+            <a className="name">{writers[i].name}</a>
+            <a className="follow name">+&nbsp;关注</a>
+            <p className="name p">
+              写了{writers[i].words}字 · {writers[i].likes}喜欢
+            </p>
+          </WriterItem>
+        );
+      }
     }
     return showList;
   }

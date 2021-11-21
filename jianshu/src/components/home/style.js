@@ -23,6 +23,18 @@ export const HomeRightWrapper = styled.div`
   margin-left: 40px;
   float: right;
 `;
+export const BackTop = styled.div`
+  position:fixed;
+  right:50px;
+  bottom:50px;
+  width:50px;
+  line-height:50px;
+  text-align:center;
+  border:1px solid rgb(240, 240, 240);
+  border-radius:10px;
+  font-size:21px;
+  cursor:pointer;
+`
 
 // topic
 export const TopicWrapper = styled.div`
@@ -66,13 +78,25 @@ export const TopicItem = styled.div`
 
 // list
 export const ListWrapper = styled.div`
+  width: 640px;
+  transition: all 0.5s ease-in;
   box-sizing: border-box;
+  .right-pic {
+    width: 150px;
+    height: 100px;
+    display: block;
+    float: right;
+    border-radius:5px;
+    margin-left:15px;
+  }
 `;
 export const NoteWrapper = styled.div`
-  width: 640px;
   border-bottom: 0.8px solid rgb(240, 240, 240);
   padding: 10px 2px;
   margin-bottom: 10px;
+  &.img-in {
+    width: 470px;
+  }
 `;
 export const NoteTitle = styled.a`
   display: block;
@@ -102,6 +126,17 @@ export const NoteFoot = styled.div`
   .iconfont {
     font-size: 10px;
   }
+`;
+export const LoadMore = styled.div`
+  width: 625px;
+  border-radius: 20px;
+  background: rgb(155, 155, 155);
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  cursor: pointer;
+  margin: 30px 0;
+  padding: 10px;
+  text-align: center;
 `;
 
 // RecommendWrapper
@@ -179,51 +214,49 @@ export const TitleSwitch = styled.span`
   }
 `;
 export const WriterList = styled.div`
-  text-align:left;
-  font-size:13px;
+  text-align: left;
+  font-size: 13px;
 `;
 export const WriterItem = styled.div`
-  overflow:hidden;
-  margin-left:10px;
-  margin-bottom:13px;
-  .avatar{
-    width:48px;
-    border-radius:50%;
-    float:left;
-
+  overflow: hidden;
+  margin-left: 10px;
+  margin-bottom: 13px;
+  .avatar {
+    width: 48px;
+    border-radius: 50%;
+    float: left;
   }
-  .name{
-    display:block;
-    float:left;
-    margin:1px 10px;
-    box-sizing:border-box;
-    padding-top:7px;
-    cursor:pointer;
+  .name {
+    display: block;
+    float: left;
+    margin: 1px 10px;
+    box-sizing: border-box;
+    padding-top: 7px;
+    cursor: pointer;
   }
-  .follow{
-    float:right;
-    color:#79d26b;
-    font-size:13px;
-    cursor:pointer;
-    box-sizing:border-box;
-    padding-right:3px;
+  .follow {
+    float: right;
+    color: #79d26b;
+    font-size: 13px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding-right: 3px;
   }
-  p{
-    font-size:12px;
-    color:rgb(150,150,150);
-    width:140px;
+  p {
+    font-size: 12px;
+    color: rgb(150, 150, 150);
+    width: 140px;
   }
 `;
 export const FindMore = styled.div`
-  box-sizing:border-box;
-  background:rgb(247, 247, 247);
-  text-align:center;
-  padding:7px;
-  margin-left:9px;
-  border-radius:4px;
-  border:solid .8px rgb(220, 220, 220);
-  cursor:pointer;
-  font-size:12px;
-  line-height:12px;
-
+  box-sizing: border-box;
+  background: rgb(247, 247, 247);
+  text-align: center;
+  padding: 7px;
+  margin-left: 9px;
+  border-radius: 4px;
+  border: solid 0.8px rgb(220, 220, 220);
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 12px;
 `;
