@@ -13,9 +13,6 @@ import {
 } from "../style";
 
 export default function Writer() {
-  useEffect(() => {
-    dispatch(getWriterList());
-  }, []);
   const spinIcon = createRef();
   const dispatch = useDispatch();
   const list = useSelector((state) => state.getIn(["home", "writers"]));
@@ -27,6 +24,9 @@ export default function Writer() {
   );
   const writers = list.size ? list.toJS() : [];
 
+  useEffect(() => {
+    dispatch(getWriterList());
+  }, [dispatch]);
 
   function showList() {
     let showList = [];
@@ -35,8 +35,8 @@ export default function Writer() {
         showList.push(
           <WriterItem key={nanoid()}>
             <img className="avatar" src={writers[i].src} alt="" />
-            <a className="name">{writers[i].name}</a>
-            <a className="follow name">+&nbsp;关注</a>
+            <div className="name">{writers[i].name}</div>
+            <div className="follow name">+&nbsp;关注</div>
             <p className="name p">
               写了{writers[i].words}字 · {writers[i].likes}喜欢
             </p>

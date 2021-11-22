@@ -8,7 +8,7 @@ const initialValue = fromJS({
   totalPages: 0,
   mouseIn: false,
 });
-export default (pre = initialValue, action) => {
+const reducer = (pre = initialValue, action) =>{
   switch (action.type) {
     case constants.SEARCH_FOCUS:
       return pre.set("focus", true);
@@ -28,4 +28,5 @@ export default (pre = initialValue, action) => {
     default:
       return pre;
   }
-};
+}
+export default reducer;

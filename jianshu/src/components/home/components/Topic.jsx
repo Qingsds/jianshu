@@ -1,6 +1,6 @@
 import React from "react";
 import { TopicWrapper, TopicItem } from "../style";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import img from "../../../static/log.png";
 import { nanoid } from "nanoid";
 

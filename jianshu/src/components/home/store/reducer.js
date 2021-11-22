@@ -1,5 +1,4 @@
 import { fromJS } from "immutable";
-
 import log from "../../../static/log.png";
 import * as constants from "./constants";
 const initialValue = fromJS({
@@ -32,7 +31,7 @@ const GER_MORE_ARTICLE_LIST = (pre, action) => {
     articlePage: action.page,
   });
 };
-export default (pre = initialValue, action) => {
+const reducer = (pre = initialValue, action) => {
   switch (action.type) {
     case constants.MOUSEENTER:
       return pre.set("mouseIn", true);
@@ -54,3 +53,4 @@ export default (pre = initialValue, action) => {
       return pre;
   }
 };
+export default reducer;

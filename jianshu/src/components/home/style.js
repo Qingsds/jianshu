@@ -4,6 +4,8 @@ export const HomeWrapper = styled.div`
   overflow: hidden;
   width: 960px;
   margin: 0 auto;
+  position:relative;
+  top:40px;
 `;
 export const HomeLeftWrapper = styled.div`
   box-sizing: border-box;
@@ -98,7 +100,7 @@ export const NoteWrapper = styled.div`
     width: 470px;
   }
 `;
-export const NoteTitle = styled.a`
+export const NoteTitle = styled.div`
   display: block;
   font-size: 18px;
   line-height: 25px;

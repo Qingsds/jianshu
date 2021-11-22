@@ -19,6 +19,7 @@ import { CSSTransition } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators } from "./store";
 import { nanoid } from "nanoid";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const focus = useSelector((state) => state.getIn(["header", "focus"]));
@@ -80,7 +81,6 @@ export default function Header() {
           onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
         >
-          
           <SearchInfoTitle>
             热门搜索
             <SearchInfoSwitch onClick={changePage}>
@@ -102,12 +102,17 @@ export default function Header() {
     <div>
       <HeaderWrapper>
         <HeaderNavWrapper>
-          <LogPic />
+          <Link to="/">
+            <LogPic />
+          </Link>
+
           <Menu>
             <MenuItem className="menu-left active">首页</MenuItem>
             <MenuItem className="menu-left">下载App</MenuItem>
             <MenuItem className="menu-left">IT技术</MenuItem>
-            <MenuItem className="menu-right">登录</MenuItem>
+            <Link to="/login">
+              <MenuItem className="menu-right">登录</MenuItem>
+            </Link>
             <MenuItem className="menu-right">
               <i className="iconfont">&#xe636;</i>
             </MenuItem>

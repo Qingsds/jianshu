@@ -27,7 +27,7 @@ export default function Home() {
         dispatch(showBackTop(window.scrollY > 100 ? true : false));
       });
     };
-  }, []);
+  }, [dispatch]);
 
   function changeBackTop() {
     if (show) {
@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <HomeWrapper>
       <HomeLeftWrapper>
-        <img className="img-div" src={img1} />
+        <img className="img-div" src={img1} alt='' />
         <Topic />
         <List />
       </HomeLeftWrapper>

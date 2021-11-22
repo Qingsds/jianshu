@@ -4,6 +4,11 @@ import log from "../../static/log.png";
 export const HeaderWrapper = styled.div`
   height: 56px;
   border-bottom: solid 1px #f1f1f1;
+  background:#fff;
+  z-index:100;
+  position:fixed;
+  right:0;
+  left:0;
 `;
 export const HeaderNavWrapper = styled.div`
   display: flex;
@@ -11,8 +16,9 @@ export const HeaderNavWrapper = styled.div`
   height: 56px;
   width: 1440px;
   margin: 0px auto;
+  
 `;
-export const LogPic = styled.a`
+export const LogPic = styled.div`
   display: block;
   width: 100px;
   height: 56px;
@@ -23,7 +29,7 @@ export const Menu = styled.div`
   width: 945px;
   height: 56px;
 `;
-export const MenuItem = styled.a`
+export const MenuItem = styled.div`
   display: block;
   height: 56px;
   line-height: 56px;
@@ -138,7 +144,7 @@ export const RightMenu = styled.div`
   width: 210px;
   height: 56px;
 `;
-export const Button = styled.a`
+export const Button = styled.div`
   display: inline-block;
   box-sizing: border-box;
   height: 30px;

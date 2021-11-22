@@ -6,14 +6,12 @@ import { nanoid } from "nanoid";
 
 export default function Recommend() {
   const moueState = useSelector((state) => state.getIn(["home", "mouseIn"]));
-  const list = useSelector((state) =>
-    state.getIn(["home", "bannerPic"])
-  );
+  const list = useSelector((state) => state.getIn(["home", "bannerPic"]));
   const bannerPicList = list.toJS();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBannerPic());
-  }, []);
+  }, [dispatch]);
 
   function mouseEnterHandler() {
     dispatch(mouseIn());
@@ -35,7 +33,7 @@ export default function Recommend() {
       );
     }
   }
-  
+
   return (
     <RecommendWrapper>
       <div>
