@@ -35,7 +35,7 @@ export const showBackTop = (flag) => ({type:SHOW_BACK_TOP,flag})
 
 export const getArticleList = () => {
   return async (dispatch) => {
-    const response = await axios.get("./api/articleList.json");
+    const response = await axios.get("/api/articleList.json");
     const articleList = response.data.articleList;
     dispatch(getArticleListC(articleList));
   };
@@ -43,7 +43,7 @@ export const getArticleList = () => {
 
 export const getBannerPic = () => {
   return async (dispatch) => {
-    const response = await axios.get("./api/bannerPic.json");
+    const response = await axios.get("/api/bannerPic.json");
     const bannerPic = response.data.bannerPic;
     dispatch(getBannerPicC(bannerPic));
   };
@@ -51,7 +51,7 @@ export const getBannerPic = () => {
 
 export const getWriterList = () => {
   return async (dispatch) => {
-    const response = await axios.get("./api/writerList.json");
+    const response = await axios.get("/api/writerList.json");
     const writers = response.data.writers;
     dispatch(getWriterListC(writers));
   };
@@ -59,7 +59,7 @@ export const getWriterList = () => {
 
 export const getMoreArticleList = (page) => {
   return async (dispatch) => {
-    const response = await axios.get(`./api/articleMoreList.json?page=${page}`);
+    const response = await axios.get(`/api/articleMoreList.json?page=${page}`);
     const articleMoreList = response.data.data;
     dispatch(getMoreArticleListC(articleMoreList,page));
   };

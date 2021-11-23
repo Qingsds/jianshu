@@ -36,7 +36,7 @@ export default function List() {
       {showList.map((item) => {
         return (
           <div key={nanoid()}>
-            <Link to={`detail/${item.title}`} style={{textDecoration:"none"}}>
+            <Link to={`/detail/${item.title}`} style={{textDecoration:"none"}}>
               <NoteWrapper>
                 <img
                   className={item.src ? "right-pic" : ""}

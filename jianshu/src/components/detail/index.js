@@ -12,14 +12,17 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getConstant } from "./store/actioncreator";
 import { nanoid } from "nanoid";
+import { useParams, withRouter } from "react-router-dom";
 
-export default function Detail() {
+function Detail() {
+  const params = useParams();
   const dispatch = useDispatch();
   const content = useSelector((state) => state.getIn(["detail", "content"]));
   const showData = content.toJS();
   useEffect(() => {
-    dispatch(getConstant());
-  }, [dispatch]);
+    console.log(params.title);
+    dispatch(getConstant(params.title));
+  }, [dispatch, params.title]);
 
   function showContent() {
     // 判断showData是否是个空对象
@@ -106,3 +109,4 @@ export default function Detail() {
     </PageWrapper>
   );
 }
+export default withRouter(Detail);

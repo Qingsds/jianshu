@@ -14,7 +14,7 @@ export const MouseLeave = () => ({ type: constants.MOUSE_LEAVE });
 export const getHeaderList = () => {
   return async (dispatch) => {
     try {
-      const data = await axios.get("./api/headerList.json");
+      const data = await axios.get("/api/headerList.json");
       const list = data.data.data;
       dispatch(HeaderListCreator(list));
     } catch (error) {

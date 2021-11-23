@@ -7,9 +7,9 @@ const getContentCreator = (data) => ({
   data: fromJS(data),
 });
 
-export const getConstant = () => {
+export const getConstant = (params) => {
   return async (dispatch) => {
-    const res = await axios.get("./api/content.json");
+    const res = await axios.get(`/api/content.json?title=${params}`);
     const content = res.data.data;
     dispatch(getContentCreator(content));
   };

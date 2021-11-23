@@ -19,11 +19,13 @@ import { CSSTransition } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators } from "./store";
 import { nanoid } from "nanoid";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { logoutCreator } from "../login/store/actioncreators";
 
 export default function Header() {
   const focus = useSelector((state) => state.getIn(["header", "focus"]));
   const data = useSelector((state) => state.getIn(["header", "list"]));
+  const login = useSelector((state) => state.getIn(["login", "login"]));
   const currentPage = useSelector((state) =>
     state.getIn(["header", "currentPage"])
   );
@@ -34,7 +36,7 @@ export default function Header() {
   // console.log(currentPage, totalPages);
   const dispatch = useDispatch();
   const spinIcon = createRef();
-
+  const history = useHistory();
   //获取焦点和失去焦点特效
   function focusHandler(e) {
     dispatch(actionCreators.SearchFocus());
@@ -73,6 +75,12 @@ export default function Header() {
       actionCreators.ChangePage(currentPage >= totalPages ? 1 : currentPage + 1)
     );
   }
+
+  // 退出
+  function logout() {
+    dispatch(logoutCreator());
+    history.push("/login");
+  }
   // focus触发下拉信息
   function getListArea() {
     if (focus || mouseIn) {
@@ -110,9 +118,19 @@ export default function Header() {
             <MenuItem className="menu-left active">首页</MenuItem>
             <MenuItem className="menu-left">下载App</MenuItem>
             <MenuItem className="menu-left">IT技术</MenuItem>
-            <Link to="/login">
-              <MenuItem className="menu-right">登录</MenuItem>
-            </Link>
+            {login ? (
+              <MenuItem
+                className="menu-right"
+                style={{ cursor: "pointer" }}
+                onClick={logout}
+              >
+                退出
+              </MenuItem>
+            ) : (
+              <Link to="/login">
+                <MenuItem className="menu-right">登录</MenuItem>
+              </Link>
+            )}
             <MenuItem className="menu-right">
               <i className="iconfont">&#xe636;</i>
             </MenuItem>
@@ -130,10 +148,12 @@ export default function Header() {
           </Menu>
           <RightMenu>
             <Button className="reg">注册</Button>
-            <Button className="write">
-              <i className="iconfont">&#xe600;</i>
-              写文章
-            </Button>
+            <Link to="/write">
+              <Button className="write">
+                <i className="iconfont">&#xe600;</i>
+                写文章
+              </Button>
+            </Link>
           </RightMenu>
         </HeaderNavWrapper>
       </HeaderWrapper>
